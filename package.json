@@ -1,0 +1,17 @@
+{
+    "name": "web-monetization-snippets",
+    "displayName": "Web Monetization Sinnpets",
+    "description": "Implement Web monetization in your app.",
+    "version": "0.0.1",
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "snippets": [
+            {
+                "language": "javascript",
+                "path": "./snippets.json"
+            }
+        ]
+    }
+}

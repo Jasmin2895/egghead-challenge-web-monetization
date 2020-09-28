@@ -1,0 +1,45 @@
+{
+    "web-monetization-meta-tag": {
+        "prefix": "meta-monetization",
+        "body": [
+            "   <meta name=\"monetization\" content=\"$wallet.example.com/alice\">",
+            " "
+        ],
+        "description": "web-monetization-meta-tag"
+    },
+    "web-monetization-events": {
+        "prefix": "monetization",
+        "body": [
+            "if (document.monetization) {",
+            "    document.monetization.addEventListener('monetizationstop', showMonetizationState)",
+            "    document.monetization.addEventListener('monetizationpending', showMonetizationState)",
+            "    document.monetization.addEventListener('monetizationstart', showMonetizationState)",
+            "}",
+            "",
+            "function showMonetizationState() {",
+            "    document.getElementById('state').innerText = document.monetization.state",
+            "}",
+            "",
+            "// check monetization status on window load event",
+            "window.addEventListener('load', () => {",
+            "    if (!document.monetization) {",
+            "        //check monetization tag on window load event",
+            "        document.getElementById('state').innerText = 'Not enabled in browser'",
+            "    } else {",
+            "        showMonetizationState()",
+            "    }",
+            "",
+            "    const monetizationTag = document.querySelector('meta[name=\"monetization\"]')",
+            "",
+            "    // remove monetization tag",
+            "    monetizationTag.remove();",
+            "",
+            "",
+            "    // add monetization tag",
+            "    document.head.appendChild(monetizationTag)",
+            "",
+            "})"
+        ],
+        "description": "web-monetization-events"
+    }
+}
